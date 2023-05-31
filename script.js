@@ -36,8 +36,6 @@ const CARDS = [
 ];
 const cardContainer = document.querySelector('.card-container');
 const available = document.querySelector('#available');
-const modalTitle = document.querySelector('#modal-title');
-const modal = document.querySelector('#modal');
 let currentCards = [...CARDS, ...CARDS];
 let isPaused = false;
 let counter = CARDS.length + 10;
@@ -56,19 +54,6 @@ function shuffle(array) {
         array[index] = temp;
     }
     return array;
-}
-
-function win() {
-    isPaused = true;
-    modalTitle.innerHTML = 'You win!';
-    modal.classList.add('modal--open');
-
-}
-
-function lose() {
-    isLose = true;
-    modalTitle.innerHTML = 'You lose 😢😩';
-    modal.classList.add('modal--open');
 }
 
 function handleClick(e) {
