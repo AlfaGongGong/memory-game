@@ -1,64 +1,65 @@
 <!doctype html>
-<html lang="en">
+<html lang="hr">
 
 <head>
 	<meta charset="utf-8" />
 	<meta content="width=device-width, initial-scale=1" name="viewport" />
-	<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-		integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" rel="stylesheet" />
-
-
-	<link
-		href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;900&family=Monoton&family=Nunito:wght@300;700;1000&family=Open+Sans:wght@400;700&family=PT+Sans+Caption:wght@400;700&family=Playfair+Display:wght@400;700&family=Potta+One&family=Raleway:wght@400;900&family=Roboto+Flex:wght@400;900&family=Source+Code+Pro:wght@400;900&family=Source+Sans+Pro:wght@400;900&display=swap"
+	<link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Nunito:wght@400;700;900&display=swap"
 		rel="stylesheet" />
-
-	<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
-		integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
-		referrerpolicy="no-referrer" rel="stylesheet" />
 	<link href="style.css" rel="stylesheet" />
-	<title>MEMORY GAME WEB APP</title>
+	<title>🧠 Memory Igra</title>
 </head>
 
 <body>
-	<main class="content container">
+
+	<!-- Floating background decorations -->
+	<div class="bg-decorations" id="bg-decorations"></div>
+
+	<main class="content">
+
 		<header class="header">
-			<h1 class="title">AlfaGongGong presents: Memory Game</h1>
-			<div class="movement">
-				<h6 class="subtitle">Moves left</h6>
-				<div class="available" id="available">
+			<h1 class="title">🧠 Memory Igra</h1>
+			<div class="stats">
+				<div class="stat-box">
+					<span class="stat-icon">🎯</span>
+					<span class="stat-label">Potezi</span>
+					<span class="stat-value" id="moves-count">0</span>
+				</div>
+				<div class="stat-box">
+					<span class="stat-icon">⏱️</span>
+					<span class="stat-label">Vrijeme</span>
+					<span class="stat-value" id="timer">0:00</span>
 				</div>
 			</div>
 		</header>
-		<section class="card-container row justify-content-center"></section>
-		<div class="col-12">
-			<button class="btn btn-primary reset play-again">
-				START NEW GAME
-			</button>
+
+		<div class="difficulty-bar">
+			<button class="diff-btn active" data-difficulty="easy">😊 Lako</button>
+			<button class="diff-btn" data-difficulty="medium">🤔 Srednje</button>
+			<button class="diff-btn" data-difficulty="hard">🔥 Teško</button>
 		</div>
+
+		<section class="card-container easy" id="card-container"></section>
+
+		<button class="start-btn" id="start-btn">🎮 Nova Igra</button>
+
 	</main>
-	<div class="modal" id="modal">
-		<div class="modal-dialog modal-dialog-centered">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h3 class="modal-title" id="modal-title">
-						You win!
-					</h3>
-					<button class="close" data-dismiss="modal" type="button">
-						&times;
-					</button>
-				</div>
-				<div class="modal-body">
-					<button class="btn btn-primary" id="play-again" type="button">
-						Play Again
-					</button>
-				</div>
-			</div>
+
+	<!-- Result overlay -->
+	<div class="overlay" id="overlay">
+		<div class="result-card">
+			<div class="result-emoji" id="result-emoji">🎉</div>
+			<h2 class="result-title" id="result-title">Bravo!</h2>
+			<div class="result-stars" id="result-stars"></div>
+			<p class="result-info" id="result-info"></p>
+			<button class="play-again-btn" id="play-again-btn">🎮 Igraj Opet</button>
 		</div>
 	</div>
 
+	<!-- Confetti canvas -->
+	<canvas id="confetti-canvas"></canvas>
+
 	<script src="./script.js"></script>
-	<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-		integrity="sha384-3pK8U7qzEADz6J1i3U3sZGq1zFJw5z5z6OIvjRtWVc9YAoQj0iaJ1y5V7DmP9TNlfHcL9XSg=="></script>
 
 </body>
 
